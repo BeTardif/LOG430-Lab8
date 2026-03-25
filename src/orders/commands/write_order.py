@@ -89,7 +89,8 @@ def add_order(user_id: int, items: list):
         session.rollback()
         raise e
     finally:
-        OrderEventProducer().get_instance().send(config.KAFKA_TOPIC, value=event_data)
+        #Send the event on finally
+        OrderEventProducer().get_instance().send(config.KAFKA_TOPIC, value=event_data) 
         session.close()
 
 def modify_order(order_id: int, is_paid: bool, payment_id: int):
