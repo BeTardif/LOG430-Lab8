@@ -8,7 +8,6 @@ import config
 from event_management.base_handler import EventHandler
 from orders.commands.order_event_producer import OrderEventProducer
 from orders.commands.write_order import add_order_to_redis, modify_order
-from orders.controllers.order_controller
 
 class PaymentCreatedHandler(EventHandler):
     """Handles PaymentCreated events"""
